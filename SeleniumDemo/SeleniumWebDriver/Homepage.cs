@@ -35,7 +35,26 @@ namespace SeleniumWebDriver
         [Test]
         public void BasicAuth()
         {
+            var userName = "admin";
+            var passWord = "admin";
+
+            driver.Manage().Cookies.DeleteAllCookies();
+
             driver.FindElement(basicAuth).Click();
+            driver.Navigate().GoToUrl($"https://{userName}:{passWord}@the-internet.herokuapp.com/basic_auth");
+
+            // Message
+            var message = driver.FindElement(By.CssSelector("#content > div > p"));
+            Assert.IsTrue(message.Text.Contains
+                ("Congratulations! You must have the proper credentials."),
+                "Incorrect message displayed.");
+
+            if (driver.PageSource.Contains("Not authorized"))
+            {
+                Console.WriteLine("Not authorized, incorrect credentials");
+            }
+            
+            Console.WriteLine("Basic Auth pass");
         }
 
         [Test]
@@ -45,7 +64,7 @@ namespace SeleniumWebDriver
 
             // Broken Image
             var brokenImage = driver.FindElement(By.CssSelector("#content > div > img:nth-child(2)"));
-                       
+
             Boolean isImageLoaded = (Boolean)((IJavaScriptExecutor)driver)
                 .ExecuteScript("return arguments[0].complete && typeof arguments[0]" +
                 ".naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", brokenImage);
