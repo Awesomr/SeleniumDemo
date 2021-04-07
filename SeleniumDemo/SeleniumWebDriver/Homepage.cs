@@ -15,8 +15,11 @@ namespace SeleniumWebDriver
         private By basicAuth = By.LinkText("Basic Auth");
         private By addRemoveElement = By.LinkText("Add/Remove Elements");
         private By brokenImages = By.LinkText("Broken Images");
-        private By challengingDom = By.LinkText("Challenging DOM");
+        
         private By checkboxes = By.LinkText("Checkboxes");
+        private By checkbox1 = By.CssSelector("#checkboxes > input[type=checkbox]:nth-child(1)");
+        private By checkbox2 = By.CssSelector("#checkboxes > input[type=checkbox]:nth-child(3)");
+
         // private By  = By.LinkText("");
 
         [SetUp]
@@ -54,7 +57,7 @@ namespace SeleniumWebDriver
             {
                 Console.WriteLine("Not authorized, incorrect credentials");
             }
-            
+
             Console.WriteLine("Basic Auth pass");
         }
 
@@ -136,6 +139,51 @@ namespace SeleniumWebDriver
             }
         }
 
+        [Test]
+        public void Checkboxes()
+        {
+            driver.FindElement(checkboxes).Click();
 
+            // Off, On
+            Thread.Sleep(500);
+            Assert.IsFalse(chkbx1(), "On startup, checkbox 1 is selected.");
+            Assert.IsTrue(chkbx2(), "On startup, checkbox 2 is not selected.");
+
+            // On, On
+            driver.FindElement(checkbox1).Click();
+            Thread.Sleep(500);
+            Assert.IsTrue(chkbx1(), "While off, checking checkbox 1 does not selected it.");
+            Assert.IsTrue(chkbx2(), "While on, checking checkbox 1 deselects checkbox 2.");
+
+            // On, Off
+            driver.FindElement(checkbox2).Click();
+            Thread.Sleep(500);
+            Assert.IsTrue(chkbx1(), "While on, checking checkbox 2 deselects checkbox 1");
+            Assert.IsFalse(chkbx2(), "While on, checking checkbox 2 does not deselect checkbox 2.");
+
+            // Off, Off
+            driver.FindElement(checkbox1).Click();
+            Thread.Sleep(500);
+            Assert.IsFalse(chkbx1(), "While on, checking checkbox 1 does not deselected it.");
+            Assert.IsFalse(chkbx2(), "While off, checkbox 1 deselects checkbox 2.");
+
+            // Off, On
+            driver.FindElement(checkbox2).Click();
+            Thread.Sleep(500);
+            Assert.IsFalse(chkbx1(), "While off, checking checkbox 2 deselects checkbox 1");
+            Assert.IsTrue(chkbx2(), "While off, checking checkbox 2 does not deselect checkbox 2.");
+
+            Console.WriteLine("Checkboxes performed as required.");
+        }
+
+        private bool chkbx1()
+        {
+            return driver.FindElement(checkbox1).Selected;
+        }
+
+        private bool chkbx2()
+        {
+            return driver.FindElement(checkbox2).Selected;
+        }
     }
 }
