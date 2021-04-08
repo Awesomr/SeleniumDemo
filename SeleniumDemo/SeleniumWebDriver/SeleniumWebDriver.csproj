@@ -55,7 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddRemoveElementsPage.cs" />
+    <Compile Include="Pages\BasicAuthPage.cs" />
+    <Compile Include="Pages\BrokenImagesPage.cs" />
+    <Compile Include="Pages\CheckboxesPage.cs" />
     <Compile Include="Homepage.cs" />
+    <Compile Include="Pages\DropdownPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
