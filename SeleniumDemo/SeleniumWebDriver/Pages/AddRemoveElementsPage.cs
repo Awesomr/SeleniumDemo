@@ -7,6 +7,8 @@ using System.Threading;
 
 namespace SeleniumWebDriver
 {
+    [TestFixture]
+    [Parallelizable]
     class AddRemoveElementsPage
     {
         public static void AddRemoveElementsTest(IWebDriver driver)

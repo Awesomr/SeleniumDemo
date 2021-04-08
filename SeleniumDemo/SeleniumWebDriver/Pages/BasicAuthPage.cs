@@ -4,16 +4,20 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
+using System.Configuration;
 
 namespace SeleniumWebDriver
 {
+    [TestFixture]
     class BasicAuthPage
     {
-        private static readonly string _userName = "admin";
-        private static readonly string _password = "admin";
+        private static string _userName = ConfigurationManager.AppSettings["userName"];
+        private static string _password = ConfigurationManager.AppSettings["password"];
 
         public static void BasicAuth(IWebDriver driver)
         {
+
+
             driver.Manage().Cookies.DeleteAllCookies();
             driver.Navigate().GoToUrl($"https://{_userName}:{_password}@the-internet.herokuapp.com/basic_auth");
 

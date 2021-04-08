@@ -7,6 +7,7 @@ using System.Threading;
 
 namespace SeleniumWebDriver
 {
+    [TestFixture]
     class BrokenImagesPage
     {
         public static void BrokenImagesTest(IWebDriver driver)

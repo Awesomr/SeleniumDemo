@@ -4,14 +4,16 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
-
+using System.Configuration;
 
 namespace SeleniumWebDriver
 {
+    [TestFixture]
+    [Parallelizable]
     public class Homepage
     {
         IWebDriver driver;
-        private string baseUrl = "https://the-internet.herokuapp.com/";
+        private string baseUrl = ConfigurationManager.AppSettings["baseUrl"];
 
         private By basicAuth = By.LinkText("Basic Auth");
         private By addRemoveElement = By.LinkText("Add/Remove Elements");
