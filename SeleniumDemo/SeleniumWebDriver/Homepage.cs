@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 
@@ -19,6 +20,10 @@ namespace SeleniumWebDriver
         private By checkboxes = By.LinkText("Checkboxes");
         private By checkbox1 = By.CssSelector("#checkboxes > input[type=checkbox]:nth-child(1)");
         private By checkbox2 = By.CssSelector("#checkboxes > input[type=checkbox]:nth-child(3)");
+
+        private By dropdown = By.LinkText("Dropdown");
+        private By dropdownList = By.Id("dropdown");
+        private By ddOpt1 = By.LinkText("Option 1");
 
         // private By  = By.LinkText("");
 
@@ -185,5 +190,30 @@ namespace SeleniumWebDriver
         {
             return driver.FindElement(checkbox2).Selected;
         }
+
+        [Test]
+        public void Dropdown()
+        {  
+            driver.FindElement(dropdown).Click();
+            driver.FindElement(dropdownList).Click();
+
+            var list = driver.FindElement(dropdownList);
+            var selectElement = new SelectElement(list);
+            Thread.Sleep(500);
+
+            // Select by value:
+            selectElement.SelectByValue("1");
+            var text = selectElement.SelectedOption.Text;
+            Assert.IsTrue(text == "Option 1", "Option 1 not selected");
+            Thread.Sleep(500);
+
+            // Select by text
+            selectElement.SelectByText("Option 2");
+            text = selectElement.SelectedOption.Text;
+            Assert.IsTrue(text == "Option 2", "Option 2 not selected");
+            Thread.Sleep(500);
+        }
+
+
     }
 }
