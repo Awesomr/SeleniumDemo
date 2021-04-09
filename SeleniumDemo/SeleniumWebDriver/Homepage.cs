@@ -15,11 +15,11 @@ namespace SeleniumWebDriver
         IWebDriver driver;
         private string baseUrl = ConfigurationManager.AppSettings["baseUrl"];
 
-        private By basicAuth = By.LinkText("Basic Auth");
-        private By addRemoveElement = By.LinkText("Add/Remove Elements");
-        private By brokenImages = By.LinkText("Broken Images");
-        private By checkboxes = By.LinkText("Checkboxes");
-        private By dropdown = By.LinkText("Dropdown");
+        private readonly By basicAuth = By.LinkText("Basic Auth");
+        private readonly By addRemoveElement = By.LinkText("Add/Remove Elements");
+        private readonly By brokenImages = By.LinkText("Broken Images");
+        private readonly By checkboxes = By.LinkText("Checkboxes");
+        private readonly By dropdown = By.LinkText("Dropdown");
 
 
 
