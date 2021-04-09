@@ -1,9 +1,14 @@
 # SeleniumDemo
 
-Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators on 'The-Internet' test site.
+Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators on 'The-Internet' test site. </br>
+Demo of using parallelism to run multiple tests at once. (Currently set to 3) </br>
 
-Also includes basic Craigslist lookup: (Chrome, Firefox, and Internet Explorer) </br>
-Bellingham Craigslist </br>
+
+
+
+Also includes basic Craigslist lookup: (Chrome, Firefox, and Internet Explorer, also in parallel) </br>
+## Sample Test Case:
+Go To: Bellingham Craigslist </br>
 Search: "Mountain Bike" </br>
  </br>
 In 'Advanced Search' frame: </br>
