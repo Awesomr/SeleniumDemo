@@ -8,7 +8,6 @@ using System.Configuration;
 
 namespace SeleniumWebDriver
 {
-    [TestFixture]
     class BasicAuthPage
     {
         private static string _userName = ConfigurationManager.AppSettings["userName"];

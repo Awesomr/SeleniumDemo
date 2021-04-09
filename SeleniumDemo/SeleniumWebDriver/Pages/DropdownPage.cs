@@ -7,7 +7,6 @@ using System.Threading;
 
 namespace SeleniumWebDriver
 {
-    [TestFixture]
     class DropdownPage
     {
         
