@@ -7,7 +7,6 @@ using System.Threading;
 
 namespace SeleniumWebDriver
 {
-    [TestFixture]
     public class CheckboxesPage
     {
         private static By checkbox1 = By.CssSelector("#checkboxes > input[type=checkbox]:nth-child(1)");

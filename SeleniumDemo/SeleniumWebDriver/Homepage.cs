@@ -6,13 +6,16 @@ using System;
 using System.Threading;
 using System.Configuration;
 
+
 namespace SeleniumWebDriver
 {
-    [TestFixture]
+    [TestFixture(Browser.Chrome)]
+    [TestFixture(Browser.Firefox)]
+    [TestFixture(Browser.IE)]
     [Parallelizable]
-    public class Homepage
+    public class Homepage : Setups
     {
-        IWebDriver driver;
+        private Browser browser;
         private string baseUrl = ConfigurationManager.AppSettings["baseUrl"];
 
         private readonly By basicAuth = By.LinkText("Basic Auth");
@@ -21,28 +24,15 @@ namespace SeleniumWebDriver
         private readonly By checkboxes = By.LinkText("Checkboxes");
         private readonly By dropdown = By.LinkText("Dropdown");
 
-
-
-
-        // private By  = By.LinkText("");
-
-        [SetUp]
-        public void SetupBrowser()
+        public Homepage(Browser browser)
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = baseUrl;
-        }
-
-        [TearDown]
-        public void Shutdown()
-        {
-            driver.Close();
+            
         }
 
         [Test]
         public void BasicAuth()
         {
+            DriverReset(browser);
             driver.FindElement(basicAuth).Click();
             BasicAuthPage.BasicAuth(driver);           
         }
@@ -50,6 +40,7 @@ namespace SeleniumWebDriver
         [Test]
         public void BrokenImages()
         {
+            DriverReset(browser);
             driver.FindElement(brokenImages).Click();
             BrokenImagesPage.BrokenImagesTest(driver);
         }
@@ -57,6 +48,7 @@ namespace SeleniumWebDriver
         [Test]
         public void AddRemoveElements()
         {
+            DriverReset(browser);
             driver.FindElement(addRemoveElement).Click();
             AddRemoveElementsPage.AddRemoveElementsTest(driver);
         }
@@ -64,17 +56,34 @@ namespace SeleniumWebDriver
         [Test]
         public void Checkboxes()
         {
+            DriverReset(browser);
             driver.FindElement(checkboxes).Click();
             CheckboxesPage.CheckboxesTest(driver);
         }
 
         [Test]
         public void Dropdown()
-        {  
+        {
+            DriverReset(browser);
             driver.FindElement(dropdown).Click();
             DropdownPage.DropdownTest(driver);
         }
 
-
+        public void DriverReset(Browser browser)
+        {
+            // Used for running multiple tests under same TestFixture
+            try
+            {
+                driver.Close();
+            }
+            catch
+            {
+                // do nothing
+            }
+            
+            driver = GetWebDriverForBrowser(browser);
+            driver.Manage().Window.Maximize();
+            driver.Url = baseUrl;
+        }
     }
 }
