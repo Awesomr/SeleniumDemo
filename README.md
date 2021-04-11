@@ -2,6 +2,7 @@
 
 Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators on 'The-Internet' test site. </br>
 Demo of using parallelism to run multiple tests at once. (Currently set to 3) </br>
+Includes Data Driven test with reading test data from an Excel file. </br>
 
 
 
