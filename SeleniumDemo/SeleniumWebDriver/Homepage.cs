@@ -23,6 +23,7 @@ namespace SeleniumWebDriver
         private readonly By brokenImages = By.LinkText("Broken Images");
         private readonly By checkboxes = By.LinkText("Checkboxes");
         private readonly By dropdown = By.LinkText("Dropdown");
+        private readonly By formAuthentication = By.LinkText("Form Authentication");
 
         public Homepage(Browser browser)
         {
@@ -67,6 +68,14 @@ namespace SeleniumWebDriver
             DriverReset(browser);
             driver.FindElement(dropdown).Click();
             DropdownPage.DropdownTest(driver);
+        }
+
+        [Test]
+        public void FormAuthentication()
+        {
+            DriverReset(browser);
+            driver.FindElement(formAuthentication).Click();
+            FormAuthenticationPage.FormAuthenticationTest(driver);
         }
 
         public void DriverReset(Browser browser)
