@@ -1,6 +1,7 @@
 # SeleniumDemo
+by Adam De King </br>
 
-Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators on 'The-Internet' test site. </br>
+Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators.</br>
 Using parallelism to run multiple tests at once. (Currently set to 3) </br>
 Includes Data Driven test with reading test data from an Excel file. </br>
 API Tests using HttpClient for GET and POST requests. </br>
