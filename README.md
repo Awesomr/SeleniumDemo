@@ -8,23 +8,23 @@ API Tests using HttpClient for GET and POST requests. </br>
 Database integration for logging. </br>
 
 
-Specflow Craigslist Demo in Gherkin:
-Feature: CraigslistDemo
-	Craigslist Selenium Demonstration
-
-@smoke
-Scenario: Get top result for 'Mountain Bike' search
-	Given I launch the appliction
-	And I enter 'Mountain Bike' into the searchbox
-	And I click 'has image'
-	And I enter the price
-		| MinPrice | MaxPrice |
-		| 250      | 500      |
-	And I scroll down
-	And I click the 'update search' button
-	And I click the top post
-	Then I should get the top price and ad information
-
+Specflow Craigslist Demo in Gherkin: </br>
+Feature: CraigslistDemo </br>
+	Craigslist Selenium Demonstration </br>
+ </br>
+@smoke </br>
+Scenario: Get top result for 'Mountain Bike' search </br>
+	Given I launch the appliction </br>
+	And I enter 'Mountain Bike' into the searchbox </br>
+	And I click 'has image' </br>
+	And I enter the price </br>
+		| MinPrice | MaxPrice | </br>
+		| 250      | 500      | </br>
+	And I scroll down </br>
+	And I click the 'update search' button </br>
+	And I click the top post </br>
+	Then I should get the top price and ad information </br>
+ </br>
 
 Also includes basic Craigslist test in basic Selenium: (Chrome, Firefox, and Internet Explorer, also in parallel) </br>
 ## Sample Test Case:
