@@ -1,67 +1,74 @@
-﻿using System;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System;
+using System.Configuration;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SeleniumWebDriver.Specflow.Features
 {
     [Binding]
     public class CraigslistDemoSteps
     {
+        CraigslistSearch craigslistSearch = null;
+
         [Given(@"I launch the appliction")]
         public void GivenILaunchTheAppliction()
         {
-            ScenarioContext.Current.Pending();
+            IWebDriver driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Url = ConfigurationManager.AppSettings["craigslistUrl"];
+            craigslistSearch = new CraigslistSearch(driver);
         }
         
         [Given(@"I enter '(.*)' into the searchbox")]
         public void GivenIEnterIntoTheSearchbox(string p0)
         {
-            ScenarioContext.Current.Pending();
+            craigslistSearch.EnterSearchTerm(p0);
         }
 
-        [Given(@"I hit '(.*)'")]
-        public void GivenIHit(string p0)
+        [Given(@"I click 'has image'")]
+        public void GivenIClick()
         {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Given(@"I click '(.*)'")]
-        public void GivenIClick(string p0)
-        {
-            ScenarioContext.Current.Pending();
+            craigslistSearch.ClickHasImage();
         }
         
         [Given(@"I enter the price")]
         public void GivenIEnterThePrice(Table table)
         {
-            ScenarioContext.Current.Pending();
+            dynamic data = table.CreateDynamicInstance();
+            craigslistSearch.EnterPriceRange((decimal)data.MinPrice, (decimal)data.MaxPrice);
         }
 
         [Given(@"I scroll down")]
         public void GivenIScrollDown()
         {
-            ScenarioContext.Current.Pending();
+            craigslistSearch.SearchFormPageDown();
         }
 
-        [Given(@"I click the '(.*)' button")]
-        public void GivenIClickTheButton(string p0)
+        [Given(@"I click the 'update search' button")]
+        public void GivenIClickTheButton()
         {
-            ScenarioContext.Current.Pending();
+            craigslistSearch.ClickUpdateSearch();
         }
         
         [Given(@"I click the top post")]
         public void GivenIClickTheTopPost()
         {
-            ScenarioContext.Current.Pending();
+            craigslistSearch.ClickTopPostOfUpdatedSearch();
         }
         
         [Then(@"I should get the top price and ad information")]
         public void ThenIShouldGetTheTopPriceAndAdInformation()
         {
-            ScenarioContext.Current.Pending();
+            var price = craigslistSearch.GetListingPrice();
+            var ad = craigslistSearch.GetAdContent();
+
+            decimal decPrice = Convert.ToDecimal(price.Replace("$", ""));
+
+            Assert.IsTrue(decPrice < 501 && decPrice > 249);
+            Assert.IsTrue(ad != null);
         }
-       
-
-        
-
     }
 }
