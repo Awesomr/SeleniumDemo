@@ -46,10 +46,5 @@ namespace SeleniumWebDriver.Specflow
         public string GetListingPrice() => ListingPrice.Text;
 
         public string GetAdContent() => ListingAdContent.Text;
-
-        public static void CloseDriver()
-        {
-            
-        }
     }
 }
