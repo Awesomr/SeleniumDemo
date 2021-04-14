@@ -13,4 +13,5 @@ Scenario: Get top result for 'Mountain Bike' search
 	And I click the 'update search' button
 	And I click the top post
 	Then I should get the top price and ad information
+	Then Close the browser
 	

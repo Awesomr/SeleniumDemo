@@ -75,11 +75,11 @@ namespace SeleniumWebDriver.Specflow.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get top result for \'Mountain Bike\' search")]
-        [NUnit.Framework.CategoryAttribute("smkoke")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
         public virtual void GetTopResultForMountainBikeSearch()
         {
             string[] tagsOfScenario = new string[] {
-                    "smkoke"};
+                    "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get top result for \'Mountain Bike\' search", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
@@ -131,6 +131,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 15
  testRunner.Then("I should get the top price and ad information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 16
+ testRunner.Then("Close the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

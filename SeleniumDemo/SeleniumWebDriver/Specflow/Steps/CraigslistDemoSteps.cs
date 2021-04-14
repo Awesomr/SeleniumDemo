@@ -69,6 +69,14 @@ namespace SeleniumWebDriver.Specflow.Features
 
             Assert.IsTrue(decPrice < 501 && decPrice > 249);
             Assert.IsTrue(ad != null);
+
+            
         }
+        [Then(@"Close the browser")]
+        public void ThenCloseTheBrowser()
+        {
+            craigslistSearch.WebDriver.Dispose();            
+        }
+
     }
 }
