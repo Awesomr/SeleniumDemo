@@ -16,6 +16,9 @@ namespace SeleniumWebDriver
     [Parallelizable]
     public class CraigslistDemo : Setups
     {
+        /// <summary>
+        /// Basic demonstration of Selenium in C#
+        /// </summary>
         public CraigslistDemo(Browser browser)
         {
             driver = GetWebDriverForBrowser(browser);
