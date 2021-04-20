@@ -54,9 +54,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Allure.Commons, Version=3.5.0.34, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Allure.Commons.3.5.0.34\lib\net45\Allure.Commons.dll</HintPath>
-    </Reference>
     <Reference Include="BoDi, Version=1.5.0.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.5.0\lib\net45\BoDi.dll</HintPath>
     </Reference>
@@ -83,9 +80,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NUnit.Allure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.Allure.1.0.13\lib\netstandard2.0\NUnit.Allure.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
@@ -175,6 +169,10 @@
   <ItemGroup>
     <Compile Include="ApiTesting.cs" />
     <Compile Include="CraigslistDemo.cs" />
+    <Compile Include="DataDrivenTests\DataDrivenCLTests.cs" />
+    <Compile Include="DataDrivenTests\ReadFromDb.cs" />
+    <Compile Include="DataDrivenTests\SearchData.cs" />
+    <Compile Include="DataDrivenTests\WriteToLog.cs" />
     <Compile Include="Data\Logs.cs" />
     <Compile Include="Pages\FormAuthenticationPage.cs" />
     <Compile Include="Data\ReadData.cs" />

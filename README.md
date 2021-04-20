@@ -8,7 +8,7 @@ API Tests using HttpClient for GET and POST requests. </br>
 Database integration for logging. </br>
 
 
-Specflow Craigslist Demo in Gherkin: </br>
+## Specflow Craigslist Demo in Gherkin: </br>
 Feature: CraigslistDemo </br>
 	Craigslist Selenium Demonstration </br>
  </br>
@@ -26,16 +26,14 @@ Scenario: Get top result for 'Mountain Bike' search </br>
 	Then I should get the top price and ad information </br>
  </br>
 
-Also includes basic Craigslist test in basic Selenium: (Chrome, Firefox, and Internet Explorer, also in parallel) </br>
-## Sample Test Case:
-Go To: Bellingham Craigslist </br>
-Search: "Mountain Bike" </br>
- </br>
-In 'Advanced Search' frame: </br>
-Select: 'has image' checkbox </br>
-Select: price between $250 and $500 </br>
-Click: 'update search' </br>
- </br>
-In Search Results: </br>
-Select: top post </br>
-Return: 'Price' and 'Ad content' </br>
+## Also includes basic Craigslist test using database lookups:  </br>
+(Chrome, Firefox, and Internet Explorer, also in parallel) </br>
+</br>
+![database search img](./images/SqlSearchTable.jpg)
+</br>
+![Test Explorer img](./images/TestExplorer.jpg)
+</br>
+Results are saved to a logging table. </br>
+![database logs img](./images/SqlLogsTable.jpg)
+</br>
+
