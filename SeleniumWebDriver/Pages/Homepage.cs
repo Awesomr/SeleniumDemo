@@ -27,7 +27,7 @@ namespace SeleniumWebDriver
 
         public Homepage(Browser browser)
         {
-            
+            this.browser = browser;
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace SeleniumWebDriver
         {
             DriverReset(browser);
             driver.FindElement(basicAuth).Click();
-            BasicAuthPage.BasicAuth(driver);           
+            BasicAuthPage.BasicAuth(driver);
         }
 
         [Test]
@@ -89,7 +89,7 @@ namespace SeleniumWebDriver
             {
                 // do nothing
             }
-            
+
             driver = GetWebDriverForBrowser(browser);
             driver.Manage().Window.Maximize();
             driver.Url = baseUrl;

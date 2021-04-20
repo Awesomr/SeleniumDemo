@@ -8,7 +8,7 @@ namespace SeleniumWebDriver
         public static void Log(string testName, string testResult)
         {
             string conString = System.Configuration.ConfigurationManager.ConnectionStrings["Local"].ConnectionString;
-            var logDt = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            var logDt = DateTime.Now.ToString("s");
             try
             {
                 SqlConnection con = new SqlConnection(conString);
