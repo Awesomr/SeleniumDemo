@@ -3,9 +3,12 @@ by Adam De King </br>
 
 Basic demonstration of Selenium Web Driver with NUnit, using different drivers and different locators.</br>
 Using parallelism to run multiple tests at once. (Currently set to 3) </br>
+
+## Data Driven Tests
 Includes Data Driven test with reading test data from an Excel file. </br>
+![excel img](./images/ExcelData.jpg)</br>
 API Tests using HttpClient for GET and POST requests. </br>
-Database integration for logging. </br>
+</br>
 
 
 ## Specflow Craigslist Demo in Gherkin: </br>
